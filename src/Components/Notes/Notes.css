@@ -1,0 +1,14 @@
+.note-div{
+    background-color: #7CBF39;
+margin: 2% 5%;
+/* padding: 3% 0; */
+border-radius: 10px;
+
+}
+h1{
+    color: #054586 !important;
+}
+p{
+    color: black;
+font-weight: 900;
+}

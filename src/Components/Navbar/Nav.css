@@ -1,0 +1,7 @@
+.main-div-nav{
+    background: rgb(191,238,143);
+background: linear-gradient(90deg, rgba(191,238,143,1) 0%, rgba(131,198,63,1) 38%, rgba(84,158,8,1) 90%, rgba(61,119,2,1) 100%);
+}
+.logo-font{
+    font-family: monospace;
+}
