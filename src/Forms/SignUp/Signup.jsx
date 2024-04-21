@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import '../../App.css'
+import './Signup.css'
 import { UserContext } from '../../Context/UserContext/Usercontext';
 import { useNavigate } from 'react-router-dom';
+
 
 
 const Signup = () => {
@@ -22,7 +23,7 @@ const Navigate = useNavigate();
         validationSchema: Yup.object({
             firstName: Yup.string()
                 .max(15, 'Must be 15 characters or less')
-                .required('Required'),
+                .required('Error Required'),
             lastName: Yup.string()
                 .max(20, 'Must be 20 characters or less')
                 .required('Required'),
@@ -41,7 +42,7 @@ const Navigate = useNavigate();
         },
     });
     return (
-        <form className='App' onSubmit={formik.handleSubmit}>
+        <form className='main-signup-form' onSubmit={formik.handleSubmit}>
             <label htmlFor="firstName">First Name</label>
             <input
                 id="firstName"

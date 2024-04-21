@@ -12,10 +12,12 @@ const Parent = () => {
 const {loggedIn} = useContext(UserContext);
 console.log(loggedIn)
 
+
     return (
         <div>
-              <Nav />
+              
             <BrowserRouter>
+            <Nav />
             {loggedIn ? <Routes>
                     <Route path='/' element={<App />} />
                     <Route path='/signup' element={<Signup />} />
@@ -31,4 +33,6 @@ console.log(loggedIn)
     )
 }
 
-export default Parent
+export default Parent;
+
+

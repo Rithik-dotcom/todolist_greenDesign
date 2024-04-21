@@ -2,14 +2,23 @@ import React, { useContext } from 'react';
 import '../../App.css';
 import './Nav.css';
 import { UserContext } from '../../Context/UserContext/Usercontext';
-
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
-  const { currentUser } = useContext(UserContext);
+
+  const Navigate = useNavigate();
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   console.log(currentUser); //provides a string
   let obj = JSON.parse(currentUser);
   if(currentUser){
   console.log(obj.firstName);
+}
+
+function handleSignout(){
+  localStorage.clear();
+  Navigate('/');
+  console.log(window.location.reload() )
+  
 }
 
   return (
@@ -26,7 +35,7 @@ const Nav = () => {
                 <a class="nav-link active text-success" aria-current="page" href="/">Home</a>
               </li>
              {currentUser ? <li class="nav-item">
-                <a class="nav-link text-success" href="/signup">Sign Out</a>
+                <button class="nav-link text-danger"  onClick={handleSignout}>Sign Out</button>
               </li>: <li class="nav-item">
                 <a class="nav-link text-success" href="/signup">Signup/Login</a>
               </li>}
