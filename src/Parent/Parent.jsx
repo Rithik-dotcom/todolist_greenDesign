@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import { BrowserRouter } from "react-router-dom";
 import Signup from '../Forms/SignUp/Signup';
 import { UserContext } from '../Context/UserContext/Usercontext';
+import Login from '../Forms/Login/Login';
 
 
 const Parent = () => {
@@ -24,7 +25,7 @@ console.log(loggedIn)
                     <Route path='*' element={<h1>Not Found</h1>} />
                 </Routes>:
                 <Routes>
-                    <Route path='*' element={<Signup />} />
+                    <Route path='*' element={<Login />} />
                 </Routes> }
                 
             </BrowserRouter>

@@ -6,8 +6,11 @@ export const UserContext = createContext({
     setCurrentUser: () => null,
     loggedIn : false,
     setLoggedin : () => null,
-})
 
+    userData: [],
+    setUserData: () => [],
+})
+//  localStorage.clear();
 
 //provider provides the access to the data in user-context
 // the children will have access to the data using provider 
@@ -22,6 +25,12 @@ export const UserProvider = ({ children }) => {
         return storedLoggedIn ? JSON.parse(storedLoggedIn) : false;
     });
 
+    //for user data
+    const [userData, setUserData] = useState(() => {
+        const storedUserData = localStorage.getItem('userData');
+        return storedUserData ? JSON.parse(storedUserData) : [];
+    });
+
     // Update local storage whenever state changes
     useEffect(() => {
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
@@ -31,7 +40,11 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem('loggedIn', JSON.stringify(loggedIn));
     }, [loggedIn]);
 
-    const value = { currentUser, setCurrentUser, loggedIn, setLoggedin };
+    useEffect(() => {
+        localStorage.setItem('userData', JSON.stringify(userData));
+    }, [userData]);
+
+    const value = { currentUser, setCurrentUser, loggedIn, setLoggedin , userData, setUserData};
 
 
 

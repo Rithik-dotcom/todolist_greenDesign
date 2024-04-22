@@ -3,6 +3,11 @@
 margin: 2% 5%;
 /* padding: 3% 0; */
 border-radius: 10px;
+background-color: #e5e5f7;
+opacity: 0.8;
+background-image:  linear-gradient(30deg, #43caec 12%, transparent 12.5%, transparent 87%, #43caec 87.5%, #43caec), linear-gradient(150deg, #43caec 12%, transparent 12.5%, transparent 87%, #43caec 87.5%, #43caec), linear-gradient(30deg, #43caec 12%, transparent 12.5%, transparent 87%, #43caec 87.5%, #43caec), linear-gradient(150deg, #43caec 12%, transparent 12.5%, transparent 87%, #43caec 87.5%, #43caec), linear-gradient(60deg, #43caec77 25%, transparent 25.5%, transparent 75%, #43caec77 75%, #43caec77), linear-gradient(60deg, #43caec77 25%, transparent 25.5%, transparent 75%, #43caec77 75%, #43caec77);
+background-size: 22px 39px;
+background-position: 0 0, 0 0, 11px 19px, 11px 19px, 0 0, 11px 19px;
 
 }
 h1{

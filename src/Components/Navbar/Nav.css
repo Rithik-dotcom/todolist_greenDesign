@@ -1,6 +1,10 @@
 .main-div-nav{
-    background: rgb(191,238,143);
-background: linear-gradient(90deg, rgba(191,238,143,1) 0%, rgba(131,198,63,1) 38%, rgba(84,158,8,1) 90%, rgba(61,119,2,1) 100%);
+    /* background: rgb(191,238,143); */
+    height: 10vh;
+    box-shadow: 10px 10px 10px darkgray;
+/* background: linear-gradient(90deg, rgba(84,158,8,1) 90%, rgba(131,198,63,1) 38%, rgba(84,158,8,1) 90%, rgba(61,119,2,1) 100%); */
+background: rgb(5,90,136);
+background: linear-gradient(90deg, rgba(5,90,136,1) 0%, rgba(67,202,236,1) 90%, rgba(67,202,236,1) 90%, rgba(67,202,236,1) 100%);
 }
 .logo-font{
     font-family: monospace;

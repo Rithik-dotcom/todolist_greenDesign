@@ -5,9 +5,13 @@ import { UserContext } from '../../Context/UserContext/Usercontext';
 import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
+  const customStyle = {
+    '--bs-link-hover-color-rgb': '25, 135, 84',
+    // Add other styles as needed
+  };
 
   const Navigate = useNavigate();
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser, loggedIn , setLoggedin} = useContext(UserContext);
   console.log(currentUser); //provides a string
   let obj = JSON.parse(currentUser);
   if(currentUser){
@@ -15,7 +19,7 @@ const Nav = () => {
 }
 
 function handleSignout(){
-  localStorage.clear();
+  setLoggedin(false);
   Navigate('/');
   console.log(window.location.reload() )
   
@@ -29,26 +33,27 @@ function handleSignout(){
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="text-end " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active text-success" aria-current="page" href="/">Home</a>
+              <li class=" text-end nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
               </li>
-             {currentUser ? <li class="nav-item">
-                <button class="nav-link text-danger"  onClick={handleSignout}>Sign Out</button>
-              </li>: <li class="nav-item">
-                <a class="nav-link text-success" href="/signup">Signup/Login</a>
+             {loggedIn ? <li class="nav-item">
+                <button class="nav-link text-white"  onClick={handleSignout}>Sign Out</button>
+              </li>: <li class="nav-item ">
+                <a class="nav-link text-white icon-link icon-link-hover" style={customStyle} href="/signup">Signup/Login</a>
               </li>}
 
               <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link  text-black pointer" aria-disabled="true">  <i class="fs-5 bi bi-sliders"></i></a>
+               
               </li>
             </ul>
 
           </div>
 
-          {currentUser && <div>
-            <p className='text-warning'> {`${obj.firstName} ${obj.lastName}`}</p>
+          {loggedIn && <div>
+            <p className='text-black fs-5'> {`Welcome ${obj.firstName}`}</p>
           </div>}
         </div>
       </nav>
