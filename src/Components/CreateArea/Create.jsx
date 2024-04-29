@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Zoom from '@mui/material/Zoom';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import './Create.css'
+import { UserContext } from '../../Context/UserContext/Usercontext';
+
 const Create = (props) => {
+    const { currentUser, userRelatedData, setUserRelatedData } = useContext(UserContext);
+
+
+
+
     const [isExpanded, setExpanded] = useState(false);
 
     const [note, setNote] = useState({
@@ -29,6 +36,30 @@ const Create = (props) => {
     function submitNote(event) {
         props.onAdd(note);
         event.preventDefault();
+        console.log(note);
+        
+        // console.log(currentUser);
+        // console.log(JSON.parse(currentUser).firstName);
+        // setUserRelatedData((para) => {
+        //     return [...para, JSON.parse(currentUser).firstName];
+        // })
+        // console.log(userRelatedData.includes(JSON.parse(currentUser).firstName));
+
+        if (userRelatedData.includes(JSON.parse(currentUser).firstName)) {
+            setUserRelatedData((para) => {
+                return [...para, note];
+            })
+        } else {
+            setUserRelatedData((para) => {
+                return [[JSON.parse(currentUser).firstName],[ ...para,  note]];
+            })
+        }
+        console.log(userRelatedData);
+       
+
+
+
+
     }
 
 

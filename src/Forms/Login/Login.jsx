@@ -1,3 +1,4 @@
+//this is a signUp form
 import React, { useContext, useState } from 'react';
 import './Login.css'
 import { UserContext } from '../../Context/UserContext/Usercontext';
@@ -37,14 +38,14 @@ const Login = () => {
             //     .required('Required'),
             email: Yup.string().email('Invalid email address').required('Required'),
             password: Yup.string().required('Required').min(6),
-            passwordConfirmation: Yup.string()
-                .oneOf([Yup.ref('password'), null], 'Passwords must match')
+            passwordConfirmation: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match')
         }),
         onSubmit: values => {
             
             alert(JSON.stringify(values, null, 2));
             let user = JSON.stringify(values, null, 2);
             // setCurrentUser(user);
+            console.log("IN Login:"+JSON.stringify(values, null, 2));
             setUserData(para => {
                 if (userData.includes(user)) {
                     alert('user already exist')
@@ -54,7 +55,7 @@ const Login = () => {
                 }
             });
            
-            console.log(userData);
+            // console.log(userData);
 
             formik.resetForm();
             
@@ -175,7 +176,9 @@ const Login = () => {
                         <button type='submit' >Sign Up</button>
                     </form>
                 </div>
+
               <Signin/>
+
                 <div className="overlay-container">
                     <div className="overlay">
                         <div className="overlay-panel overlay-left">

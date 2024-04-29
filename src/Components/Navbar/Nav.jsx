@@ -15,7 +15,7 @@ const Nav = () => {
   console.log(currentUser); //provides a string
   let obj = JSON.parse(currentUser);
   if(currentUser){
-  console.log(obj.firstName);
+  // console.log(obj.firstName);
 }
 
 function handleSignout(){

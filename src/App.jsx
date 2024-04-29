@@ -10,6 +10,7 @@ function App() {
     setNotes(para => {
       return [...para, newNote]
     })
+    console.log(notes)
   }
 
   function handleDelete(id) {

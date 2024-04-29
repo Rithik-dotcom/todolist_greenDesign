@@ -1,3 +1,4 @@
+//this is a sign-in form
 import React, { useContext } from 'react'
 import './Login.css';
 import { useFormik } from 'formik';
@@ -33,15 +34,15 @@ const {loggedIn, setLoggedin, userData, setCurrentUser} = useContext(UserContext
             let user = JSON.stringify(values, null, 2);
             setCurrentUser(user);
           console.log(values)
-    
+     
           
-          const userDataArray = userData.map(user => JSON.parse(user));
+          const userDataArray = userData.map(each => JSON.parse(each));
 
 // Access the "firstName" value from each object
 function check() {
     const foundUser = userDataArray.find(user => user.firstName === values.firstName);
     if (foundUser) {
-        console.log("Found user with firstName 'abc'");
+        console.log("Founduser with firstName 'abc'");
         alert("SuccessFull Login");
         setLoggedin(true)
         return true;
